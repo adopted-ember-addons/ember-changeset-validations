@@ -1,5 +1,21 @@
 # Changelog
 
+## Release (2024-10-27)
+
+ember-changeset-validations 4.1.2 (patch)
+
+#### :memo: Documentation
+* `ember-changeset-validations`
+  * [#352](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/352) fix(readme): fixed small typo in readme ([@c0rydoras](https://github.com/c0rydoras))
+
+#### :house: Internal
+* `ember-changeset-validations`
+  * [#356](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/356) Setup release-plan ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 2
+- Arthur ([@c0rydoras](https://github.com/c0rydoras))
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
 # Change Log
 
 ## v4.1.0 (2022-04-19)
