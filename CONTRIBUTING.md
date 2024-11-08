@@ -48,22 +48,22 @@ issue's number to the description of your pull-request.
 
 - `git clone https://github.com/adopted-ember-addons/ember-changeset-validations.git`
 - `cd ember-changeset-validations`
-- `npm install`
+- `pnpm install`
 
 ## Linting
 
-- `npm run lint`
-- `npm run lint:fix`
+- `pnpm lint`
+- `pnpm lint:fix`
 
 ## Running tests
 
-- `npm run test` – Runs the test suite on the current Ember version
-- `npm run test:ember -- --server` – Runs the test suite in "watch mode"
-- `npm run test:ember-compatibility` – Runs the test suite against multiple Ember versions
+- `pnpm test` – Runs the test suite on the current Ember version
+- `pnpm test:ember --server` – Runs the test suite in "watch mode"
+- `pnpm test:ember-compatibility` – Runs the test suite against multiple Ember versions
 
 ## Running the dummy application
 
-- `npm run start`
+- `pnpm start`
 - Visit the dummy application at [http://localhost:4200](http://localhost:4200).
 
 For more information on using ember-cli, visit [https://cli.emberjs.com/release/](https://cli.emberjs.com/release/).

@@ -1,13 +1,13 @@
 <h1 align="center"><br><br><img alt="ember-changeset-validations: Validations for ember-changeset" src="assets/title.svg" width="350px"><br><br><br></h1>
 
 [![Download count all time](https://img.shields.io/npm/dt/ember-changeset-validations.svg)](https://badge.fury.io/js/ember-changeset-validations)
-[![GitHub Actions Build Status](https://img.shields.io/github/workflow/status/poteto/ember-changeset-validations/CI/master)](https://github.com/poteto/ember-changeset-validations/actions/workflows/ci.yml?query=branch%3Amaster)
+[![CI](https://github.com/adopted-ember-addons/ember-changeset-validations/actions/workflows/ci.yml/badge.svg)](https://github.com/adopted-ember-addons/ember-changeset-validations/actions/workflows/ci.yml)
 [![npm version](https://badge.fury.io/js/ember-changeset-validations.svg)](https://badge.fury.io/js/ember-changeset-validations)
 [![Ember Observer Score](https://emberobserver.com/badges/ember-changeset-validations.svg)](https://emberobserver.com/addons/ember-changeset-validations)
 
-`ember-changeset-validations` is a companion validation library to [`ember-changeset`](https://github.com/poteto/ember-changeset). It's really simple to use and understand, and there are no CPs or observers anywhere – it's mostly just functions.
+`ember-changeset-validations` is a companion validation library to [`ember-changeset`](https://github.com/adopted-ember-addons/ember-changeset). It's really simple to use and understand, and there are no CPs or observers anywhere – it's mostly just functions.
 
-Since `ember-changeset` is required to use this addon, please see [documentation](https://github.com/poteto/ember-changeset/blob/master/README.md) there on how to install and use changesets.
+Since `ember-changeset` is required to use this addon, please see [documentation](https://github.com/adopted-ember-addons/ember-changeset/blob/master/README.md) there on how to install and use changesets.
 
 To install if your app is on ember-source >= 3.13:
 
