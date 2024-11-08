@@ -24,18 +24,18 @@
   },
   "scripts": {
     "build": "ember build --environment=production",
-    "contributors": "npx contributor-faces -e \"(*-bot|*\\[bot\\]|*-tomster|homu|bors)\"",
-    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
+    "contributors": "pnpm dlx contributor-faces -e \"(*-bot|*\\[bot\\]|*-tomster|homu|bors)\"",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
     "lint:css": "stylelint \"**/*.css\"",
-    "lint:css:fix": "concurrently \"npm:lint:css -- --fix\"",
-    "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
-    "lint:js": "eslint . --cache",
-    "lint:js:fix": "eslint . --fix",
+    "lint:css:fix": "concurrently \"pnpm:lint:css -- --fix\"",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\"",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
     "node-test": "mocha node-test --recursive",
     "start": "ember serve",
-    "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
+    "test": "concurrently \"pnpm:lint\" \"pnpm:test:*\" --names \"lint,test:\"",
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each"
   },
@@ -95,15 +95,16 @@
     "webpack": "^5.96.1"
   },
   "peerDependencies": {
-    "ember-source": ">= 3.20.0",
-    "@ember/string": "^3.0.0 || ^4.0.0"
+    "@ember/string": "^3.0.0 || ^4.0.0",
+    "ember-source": ">= 3.20.0"
   },
+  "packageManager": "pnpm@9.12.3",
   "engines": {
     "node": "12.* || 14.* || >= 16"
   },
   "volta": {
     "node": "20.18.0",
-    "npm": "10.9.0"
+    "pnpm": "9.12.3"
   },
   "ember": {
     "edition": "octane"

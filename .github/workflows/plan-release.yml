@@ -55,12 +55,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-      - run: npm ci
+      - uses: pnpm/action-setup@v4
+      - run: pnpm install --frozen-lockfile
       - name: "Generate Explanation and Prep Changelogs"
         id: explanation
         run: |
           set +e
-          npx release-plan prepare 2> >(tee -a release-plan-stderr.txt >&2)
+          pnpm release-plan prepare 2> >(tee -a release-plan-stderr.txt >&2)
 
           if [ $? -ne 0 ]; then
             echo 'text<<EOF' >> $GITHUB_OUTPUT
