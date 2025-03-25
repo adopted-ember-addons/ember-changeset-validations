@@ -1,5 +1,32 @@
 # Changelog
 
+## Release (2025-03-24)
+
+* ember-changeset-validations 4.1.2 (patch)
+
+#### :bug: Bug Fix
+* `ember-changeset-validations`
+  * [#359](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/359)   Declare peer dependency on @ember/string for compatibility with Ember >= 5 ([@jelhan](https://github.com/jelhan))
+
+#### :memo: Documentation
+* `ember-changeset-validations`
+  * [#352](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/352) doc(readme): fixed small typo ([@c0rydoras](https://github.com/c0rydoras))
+
+#### :house: Internal
+* `ember-changeset-validations`
+  * [#367](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/367) Update release-plan and setup ([@SergeAstapov](https://github.com/SergeAstapov))
+  * [#364](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/364) Switch from npm to pnpm ([@SergeAstapov](https://github.com/SergeAstapov))
+  * [#362](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/362) Sync with latest addon blueprint ([@SergeAstapov](https://github.com/SergeAstapov))
+  * [#363](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/363) Setup ember-template-lint and fix errors ([@SergeAstapov](https://github.com/SergeAstapov))
+  * [#361](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/361) Update ESLint to v9 ([@SergeAstapov](https://github.com/SergeAstapov))
+  * [#360](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/360) Bump prettier to v3 and add trailing commas ([@SergeAstapov](https://github.com/SergeAstapov))
+  * [#356](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/356) Setup release-plan ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 3
+- Arthur ([@c0rydoras](https://github.com/c0rydoras))
+- Jeldrik Hanschke ([@jelhan](https://github.com/jelhan))
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
 # Change Log
 
 ## v4.1.0 (2022-04-19)
