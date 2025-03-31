@@ -98,7 +98,7 @@
     "@ember/string": "^3.0.0 || ^4.0.0",
     "ember-source": ">= 3.20.0"
   },
-  "packageManager": "pnpm@9.12.3",
+  "packageManager": "pnpm@10.7.0",
   "pnpm": {
     "overrides": {
       "validated-changeset": "^1.4.1"
@@ -109,7 +109,7 @@
   },
   "volta": {
     "node": "20.18.0",
-    "pnpm": "9.12.3"
+    "pnpm": "10.7.0"
   },
   "ember": {
     "edition": "octane"
