@@ -1,5 +1,5 @@
-import buildMessage from 'ember-changeset-validations/utils/validation-errors';
-import withDefaults from 'ember-changeset-validations/utils/with-defaults';
+import buildMessage from '../utils/validation-errors.js';
+import withDefaults from '../utils/with-defaults.js';
 import evValidateLength from 'ember-validators/length';
 
 export default function validateLength(options = {}) {

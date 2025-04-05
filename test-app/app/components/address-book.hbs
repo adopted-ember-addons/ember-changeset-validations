@@ -1,0 +1,41 @@
+<form class="form">
+  <fieldset class="fieldset">
+    <div data-test-address-book-name-field class="form-control-container">
+      <label for="address-book-name" class="form-label form-label_required">
+        Название
+      </label>
+
+      <input
+        id="address-book-name"
+        class="form-control form-control_small
+          {{if
+            (get this.formChangeset.error.name 'validation')
+            'is-invalid'
+            ''
+          }}"
+        type="text"
+        value={{this.formChangeset.name}}
+        {{on "change" (fn this.onChange "name")}}
+        {{on "focusout" (fn this.onBlur "name")}}
+      />
+
+      <span class="invalid-feedback">
+        {{get this.formChangeset.error.name "validation"}}
+      </span>
+    </div>
+  </fieldset>
+
+  <button
+    type="button"
+    data-test-submit
+    class="btn btn-primary"
+    disabled={{@isSubmitting}}
+    {{on "click" this.onSubmit}}
+  >
+    {{#if @isSubmitting}}
+      Сохранение...
+    {{else}}
+      Сохранить
+    {{/if}}
+  </button>
+</form>
