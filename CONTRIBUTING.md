@@ -58,8 +58,8 @@ issue's number to the description of your pull-request.
 
 ## Running tests
 
+- `pnpm start` – Runs the test suite in "watch mode"
 - `pnpm test` – Runs the test suite on the current Ember version
-- `pnpm test:ember --server` – Runs the test suite in "watch mode"
 - `pnpm test:ember-compatibility` – Runs the test suite against multiple Ember versions
 
 ## Running the dummy application
