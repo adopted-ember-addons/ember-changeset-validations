@@ -1,0 +1,6 @@
+packages:
+  - .
+#  - test-app
+  - test-app-raw-output
+onlyBuiltDependencies:
+  - core-js
