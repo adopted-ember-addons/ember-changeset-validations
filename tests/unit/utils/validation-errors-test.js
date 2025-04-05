@@ -1,7 +1,7 @@
 import getMessages from 'ember-changeset-validations/utils/get-messages';
 import buildMessage from 'ember-changeset-validations/utils/validation-errors';
 import { module, test } from 'qunit';
-import config from 'ember-get-config';
+import { getOwnConfig } from '@embroider/macros';
 
 const messages = getMessages();
 
@@ -82,8 +82,12 @@ module('Unit | Utility | validation errors', function () {
   });
 
   test('#buildMessage can return a raw data structure', function (assert) {
-    let originalConfig = config['changeset-validations']; // enable the feature
-    config['changeset-validations'] = { rawOutput: true };
+    let originalConfig = getOwnConfig(); // enable the feature
+    const originalRawOutput = originalConfig?.rawOutput;
+    if (originalConfig) {
+      originalConfig.rawOutput = true;
+    }
+
     let result = buildMessage('firstName', {
       type: 'present',
       value: 'testValue',
@@ -104,12 +108,19 @@ module('Unit | Utility | validation errors', function () {
     assert.strictEqual(description, 'First name', 'description is returned');
     assert.strictEqual(type, 'present', 'the type of the error is returned');
     assert.strictEqual(value, 'testValue', 'the passed value is returned');
-    config['changeset-validations'] = originalConfig; // reset the config
+
+    if (originalConfig) {
+      originalConfig.rawOutput = originalRawOutput; // reset the config
+    }
   });
 
   test('#buildMessage can return a raw data structure for a date', function (assert) {
-    let originalConfig = config['changeset-validations']; // enable the feature
-    config['changeset-validations'] = { rawOutput: true };
+    let originalConfig = getOwnConfig(); // enable the feature
+    const originalRawOutput = originalConfig?.rawOutput;
+    if (originalConfig) {
+      originalConfig.rawOutput = true;
+    }
+
     let d = new Date();
     let result = buildMessage('firstName', {
       type: 'date',
@@ -131,6 +142,9 @@ module('Unit | Utility | validation errors', function () {
     assert.strictEqual(description, 'First name', 'description is returned');
     assert.strictEqual(type, 'date', 'the type of the error is returned');
     assert.strictEqual(value, d, 'the passed value is returned');
-    config['changeset-validations'] = originalConfig; // reset the config
+
+    if (originalConfig) {
+      originalConfig.rawOutput = originalRawOutput; // reset the config
+    }
   });
 });
