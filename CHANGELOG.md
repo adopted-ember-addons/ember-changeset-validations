@@ -1,5 +1,20 @@
 # Changelog
 
+## Release (2025-03-31)
+
+* ember-changeset-validations 4.2.0 (minor)
+
+#### :rocket: Enhancement
+* `ember-changeset-validations`
+  * [#368](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/368) Bump validated-changeset to 1.4.1 ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### :house: Internal
+* `ember-changeset-validations`
+  * [#369](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/369) Bump pnpm to 10.7.0 ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 1
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
 ## Release (2025-03-24)
 
 * ember-changeset-validations 4.1.2 (patch)

@@ -1,18 +1,14 @@
 {
   "solution": {
     "ember-changeset-validations": {
-      "impact": "patch",
-      "oldVersion": "4.1.1",
-      "newVersion": "4.1.2",
+      "impact": "minor",
+      "oldVersion": "4.1.2",
+      "newVersion": "4.2.0",
       "tagName": "latest",
       "constraints": [
         {
-          "impact": "patch",
-          "reason": "Appears in changelog section :bug: Bug Fix"
-        },
-        {
-          "impact": "patch",
-          "reason": "Appears in changelog section :memo: Documentation"
+          "impact": "minor",
+          "reason": "Appears in changelog section :rocket: Enhancement"
         },
         {
           "impact": "patch",
@@ -22,5 +18,5 @@
       "pkgJSONPath": "./package.json"
     }
   },
-  "description": "## Release (2025-03-24)\n\n* ember-changeset-validations 4.1.2 (patch)\n\n#### :bug: Bug Fix\n* `ember-changeset-validations`\n  * [#359](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/359)   Declare peer dependency on @ember/string for compatibility with Ember >= 5 ([@jelhan](https://github.com/jelhan))\n\n#### :memo: Documentation\n* `ember-changeset-validations`\n  * [#352](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/352) doc(readme): fixed small typo ([@c0rydoras](https://github.com/c0rydoras))\n\n#### :house: Internal\n* `ember-changeset-validations`\n  * [#367](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/367) Update release-plan and setup ([@SergeAstapov](https://github.com/SergeAstapov))\n  * [#364](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/364) Switch from npm to pnpm ([@SergeAstapov](https://github.com/SergeAstapov))\n  * [#362](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/362) Sync with latest addon blueprint ([@SergeAstapov](https://github.com/SergeAstapov))\n  * [#363](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/363) Setup ember-template-lint and fix errors ([@SergeAstapov](https://github.com/SergeAstapov))\n  * [#361](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/361) Update ESLint to v9 ([@SergeAstapov](https://github.com/SergeAstapov))\n  * [#360](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/360) Bump prettier to v3 and add trailing commas ([@SergeAstapov](https://github.com/SergeAstapov))\n  * [#356](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/356) Setup release-plan ([@SergeAstapov](https://github.com/SergeAstapov))\n\n#### Committers: 3\n- Arthur ([@c0rydoras](https://github.com/c0rydoras))\n- Jeldrik Hanschke ([@jelhan](https://github.com/jelhan))\n- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))\n"
+  "description": "## Release (2025-03-31)\n\n* ember-changeset-validations 4.2.0 (minor)\n\n#### :rocket: Enhancement\n* `ember-changeset-validations`\n  * [#368](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/368) Bump validated-changeset to 1.4.1 ([@SergeAstapov](https://github.com/SergeAstapov))\n\n#### :house: Internal\n* `ember-changeset-validations`\n  * [#369](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/369) Bump pnpm to 10.7.0 ([@SergeAstapov](https://github.com/SergeAstapov))\n\n#### Committers: 1\n- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))\n"
 }
