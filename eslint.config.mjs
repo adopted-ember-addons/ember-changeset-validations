@@ -45,9 +45,12 @@ export default [
   {
     ignores: [
       'blueprints/validator/files',
+      'coverage/',
       'dist/',
       'node_modules/',
-      'coverage/',
+      'test-app/app/config/environment.d.ts',
+      'test-app/dist/',
+      'test-app/node_modules/',
       '!**/.*',
     ],
   },
@@ -75,9 +78,19 @@ export default [
     },
   },
   {
-    files: ['tests/**/*-test.{js,gjs}'],
+    files: ['test-app/tests/**/*-test.{js,gjs,ts,gts}'],
     plugins: {
       qunit,
+    },
+  },
+  {
+    files: ['node-test/**/*-test.{js,gjs,ts,gts}'],
+    languageOptions: {
+      sourceType: 'script',
+      ecmaVersion: 'latest',
+      globals: {
+        ...globals.mocha,
+      },
     },
   },
   /**
@@ -87,16 +100,11 @@ export default [
     files: [
       '**/*.cjs',
       'blueprints/**/*.js',
-      'config/**/*.js',
-      'tests/dummy/config/**/*.js',
       'node-test/**/*.js',
       'index.js',
-      'testem.js',
-      'testem*.js',
-      '.prettierrc.js',
-      '.stylelintrc.js',
-      '.template-lintrc.js',
-      'ember-cli-build.js',
+      'test-app/config/**/*.js',
+      'test-app/ember-cli-build.js',
+      'test-app/testem.js',
     ],
     plugins: {
       n,
@@ -106,7 +114,6 @@ export default [
       sourceType: 'script',
       ecmaVersion: 'latest',
       globals: {
-        ...globals.mocha,
         ...globals.node,
       },
     },

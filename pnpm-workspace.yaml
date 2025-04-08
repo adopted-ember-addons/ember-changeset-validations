@@ -1,0 +1,5 @@
+packages:
+  - .
+  - test-app
+onlyBuiltDependencies:
+  - core-js

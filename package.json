@@ -34,13 +34,13 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "node-test": "mocha node-test --recursive",
-    "start": "ember serve",
+    "start": "cd test-app && ember serve",
     "test": "concurrently \"pnpm:lint\" \"pnpm:test:*\" --names \"lint,test:\"",
-    "test:ember": "ember test",
-    "test:ember-compatibility": "ember try:each"
+    "test:ember": "cd test-app && ember test",
+    "test:ember-compatibility": "cd test-app && ember try:each"
   },
   "dependencies": {
-    "@babel/core": "^7.26.0",
+    "@babel/core": "^7.26.10",
     "ember-auto-import": "^2.10.0",
     "ember-cli-babel": "^8.2.0",
     "ember-get-config": "^0.3.0 || ^0.4.0 || ^0.5.0 || ^1.0.2 || ^2.0.0",
@@ -48,7 +48,7 @@
     "validated-changeset": "~1.4.1"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.25.9",
+    "@babel/eslint-parser": "^7.27.0",
     "@babel/plugin-proposal-decorators": "^7.25.9",
     "@ember/optional-features": "^2.2.0",
     "@ember/string": "^4.0.0",
@@ -92,7 +92,7 @@
     "stylelint": "^16.10.0",
     "stylelint-config-standard": "^36.0.1",
     "stylelint-prettier": "^5.0.2",
-    "webpack": "^5.96.1"
+    "webpack": "^5.99.0"
   },
   "peerDependencies": {
     "@ember/string": "^3.0.0 || ^4.0.0",

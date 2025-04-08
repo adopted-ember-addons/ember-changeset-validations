@@ -19,7 +19,7 @@ module('Unit | Validator | date', function () {
         value: 'not a date',
         context: options,
       }),
-      'result: [CUSTOM] Birth date must be a valid date',
+      'result:Birth date must be a valid date',
     );
     assert.strictEqual(
       validator(key, NaN),
@@ -66,7 +66,7 @@ module('Unit | Validator | date', function () {
         value: 'pity a fool',
         context: options,
       }),
-      'result: [CUSTOM] Test date must be a valid date',
+      'result:Test date must be a valid date',
     );
   });
 
@@ -83,7 +83,7 @@ module('Unit | Validator | date', function () {
         value: 'not a date',
         context: options,
       }),
-      'result: [CUSTOM] Test date must be a valid date',
+      'result:Test date must be a valid date',
     );
     assert.strictEqual(
       validator(key, null),
@@ -92,7 +92,7 @@ module('Unit | Validator | date', function () {
         value: 'not a date',
         context: options,
       }),
-      'result: [CUSTOM] Test date must be a valid date',
+      'result:Test date must be a valid date',
     );
     assert.strictEqual(
       validator(key, undefined),
@@ -101,7 +101,7 @@ module('Unit | Validator | date', function () {
         value: 'not a date',
         context: options,
       }),
-      'result: [CUSTOM] Test date must be a valid date',
+      'result:Test date must be a valid date',
     );
     assert.strictEqual(
       validator(key, '1992-03-30'),
@@ -110,7 +110,7 @@ module('Unit | Validator | date', function () {
         value: 'not a date',
         context: options,
       }),
-      'result: [CUSTOM] Test date must be a valid date',
+      'result:Test date must be a valid date',
     );
     assert.strictEqual(
       validator(key, 'not a date'),
