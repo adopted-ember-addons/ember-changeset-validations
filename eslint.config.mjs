@@ -49,6 +49,7 @@ export default [
       'node_modules/',
       'coverage/',
       '!**/.*',
+      '**/*.d.ts',
     ],
   },
   /**
@@ -88,6 +89,9 @@ export default [
       '**/*.cjs',
       'blueprints/**/*.js',
       'config/**/*.js',
+      'test-app-raw-output/config/**/*.js',
+      'test-app-raw-output/ember-cli-build.js',
+      'test-app-raw-output/testem.js',
       'tests/dummy/config/**/*.js',
       'node-test/**/*.js',
       'index.js',

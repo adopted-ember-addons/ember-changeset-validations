@@ -1,3 +1,2 @@
-import { lookupValidator } from 'validated-changeset';
-
-export default lookupValidator;
+export { lookupValidator as default } from 'validated-changeset';
+export { setMessages } from './utils/messages';

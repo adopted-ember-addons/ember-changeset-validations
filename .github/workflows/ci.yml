@@ -31,6 +31,9 @@ jobs:
         run: pnpm lint
       - name: Run Tests
         run: pnpm test:ember
+      - name: Run Tests in rawOutput app
+        run: pnpm test:ember
+        working-directory: test-app-raw-output
 
   floating:
     name: "Floating Dependencies"

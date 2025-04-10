@@ -62,7 +62,7 @@ module('Integration | Components | validation errors', function (hooks) {
     assert.ok(find('ul.lastNameErrors li'), 'has last name errors');
     assert.strictEqual(
       find('ul.lastNameErrors li').textContent.trim(),
-      '[CUSTOM] Last name is too short (minimum is 2 characters)',
+      'Last name is too short (minimum is 2 characters)',
       'has last name errors',
     );
     assert.notOk(find('ul.ageErrors'), 'has no age errors');
@@ -155,7 +155,7 @@ module('Integration | Components | validation errors', function (hooks) {
     assert.ok(find('ul.stateWiErrors li'), 'has wi errors');
     assert.strictEqual(
       find('ul.stateWiErrors li').textContent.trim(),
-      '[CUSTOM] State wi is too short (minimum is 2 characters)',
+      'State wi is too short (minimum is 2 characters)',
       'has last name errors',
     );
 
@@ -164,7 +164,7 @@ module('Integration | Components | validation errors', function (hooks) {
     assert.ok(find('ul.stateNyErrors li'), 'has ny errors after wi input');
     assert.strictEqual(
       find('ul.stateNyErrors li').textContent.trim(),
-      '[CUSTOM] State ny is too short (minimum is 2 characters)',
+      'State ny is too short (minimum is 2 characters)',
       'has last name errors',
     );
     assert.notOk(find('ul.stateWiErrors'), 'has no wi errors after input');
