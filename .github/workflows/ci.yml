@@ -34,11 +34,10 @@ jobs:
       - name: Run Tests
         run: pnpm test:ember
       - name: Run Tests in rawOutput app
-        run: pnpm test:ember
-        working-directory: test-app-raw-output
+        run: pnpm test:raw-output
       - id: set-matrix
-        run: echo "::set-output name=matrix::$(pnpm --silent scenario-tester list --files ./scenarios.js --matrix 'pnpm qunit ./scenarios.js --filter %s:')"
-        working-directory: test-app
+        run: |
+          echo "matrix=$(pnpm -s dlx @embroider/try list)" >> $GITHUB_OUTPUT
 
   floating:
     name: "Floating Dependencies"
@@ -72,7 +71,7 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
       - name: Run Tests
-        run: pnpm node-test
+        run: pnpm test:blueprint
 
   try-scenarios:
     name: "${{ matrix.name }}"
@@ -91,8 +90,10 @@ jobs:
         with:
           node-version: 18
           cache: pnpm
+      - name: Apply Scenario
+        run: pnpm dlx @embroider/try apply ${{ matrix.name }}
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
       - name: Run Tests
-        run: ${{ matrix.command }}
-        working-directory: test-app
+        run: pnpm test:ember
+        env: ${{ matrix.env }}

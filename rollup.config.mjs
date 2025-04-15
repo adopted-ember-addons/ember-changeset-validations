@@ -1,3 +1,5 @@
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { babel } from '@rollup/plugin-babel';
 import { Addon } from '@embroider/addon-dev/rollup';
 
@@ -40,6 +42,10 @@ export default {
     babel({
       extensions: ['.js', '.gjs', '.ts', '.gts'],
       babelHelpers: 'bundled',
+      configFile: resolve(
+        dirname(fileURLToPath(import.meta.url)),
+        './babel.publish.config.cjs',
+      ),
     }),
 
     // Ensure that standalone .hbs files are properly integrated as Javascript.
