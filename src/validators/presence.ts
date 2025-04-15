@@ -1,4 +1,4 @@
-import buildMessage from '../utils/validation-errors.js';
+import buildMessage from '../utils/validation-errors.ts';
 import evValidatePresence from 'ember-validators/presence';
 import { get } from '@ember/object';
 

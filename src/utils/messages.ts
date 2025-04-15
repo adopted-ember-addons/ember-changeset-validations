@@ -1,8 +1,10 @@
 import _Messages from 'ember-validators/messages';
 import { capitalize, dasherize } from '@ember/string';
 
-let cachedRef;
-let customMessages;
+type IMessages = Record<string, string>;
+
+let cachedRef: IMessages | undefined;
+let customMessages: IMessages | undefined;
 
 export const defaultMessages = Object.assign({}, _Messages, {
   // Blank and present are flipped in ember-validators. Need to flip them back here
@@ -39,17 +41,17 @@ export const defaultMessages = Object.assign({}, _Messages, {
  *
  * @return {Object}
  */
-export function getMessages() {
+export function getMessages(): object {
   if (cachedRef) {
     return cachedRef;
   }
 
   cachedRef = Object.assign({}, defaultMessages, customMessages);
 
-  return cachedRef;
+  return cachedRef as IMessages;
 }
 
-export function setMessages(messages) {
+export function setMessages(messages: IMessages) {
   customMessages = messages;
   cachedRef = undefined;
 }
