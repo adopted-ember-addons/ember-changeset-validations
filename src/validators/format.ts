@@ -1,5 +1,5 @@
 import { isEmpty } from '@ember/utils';
-import buildMessage from '../utils/validation-errors.js';
+import buildMessage from '../utils/validation-errors.ts';
 import evValidateFormat from 'ember-validators/format';
 
 export default function validateFormat(options = {}) {

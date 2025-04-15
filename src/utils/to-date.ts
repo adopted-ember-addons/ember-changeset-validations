@@ -4,7 +4,9 @@
  * @returns {Date} the parsed date in the local time zone
  * @throws {TypeError} 1 argument required
  */
-export default function toDate(argument) {
+export default function toDate(
+  argument: Date | number | string | (() => Date | number),
+): Date {
   const argStr = Object.prototype.toString.call(argument);
 
   if (typeof argument === 'function') {

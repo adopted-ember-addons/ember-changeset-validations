@@ -1,4 +1,4 @@
-import buildMessage from '../utils/validation-errors.js';
+import buildMessage from '../utils/validation-errors.ts';
 import evValidateInclusion from 'ember-validators/inclusion';
 
 export default function validateInclusion(options = {}) {

@@ -1,4 +1,4 @@
-import buildMessage from '../utils/validation-errors.js';
+import buildMessage from '../utils/validation-errors.ts';
 import evValidateConfirmation from 'ember-validators/confirmation';
 
 export default function validateConfirmation(options = {}) {

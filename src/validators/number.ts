@@ -1,5 +1,5 @@
-import buildMessage from '../utils/validation-errors.js';
-import withDefaults from '../utils/with-defaults.js';
+import buildMessage from '../utils/validation-errors.ts';
+import withDefaults from '../utils/with-defaults.ts';
 import evValidateNumber from 'ember-validators/number';
 
 export default function validateNumber(options = {}) {

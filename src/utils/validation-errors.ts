@@ -7,10 +7,16 @@ import { get } from '@ember/object';
 
 import { assert } from '@ember/debug';
 import { getOwnConfig } from '@embroider/macros';
-import { getMessages } from './messages.js';
+import { getMessages } from './messages.ts';
+
+type IOwnConfig =
+  | undefined
+  | {
+      rawOutput: boolean;
+    };
 
 export default function buildMessage(key, result) {
-  let returnsRaw = getOwnConfig()?.rawOutput || false;
+  let returnsRaw = getOwnConfig<IOwnConfig>()?.rawOutput || false;
   let messages = getMessages();
 
   let description = messages.getDescriptionFor(key);

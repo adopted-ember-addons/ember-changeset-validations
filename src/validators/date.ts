@@ -1,6 +1,6 @@
-import buildMessage from '../utils/validation-errors.js';
-import withDefaults from '../utils/with-defaults.js';
-import toDate from '../utils/to-date.js';
+import buildMessage from '../utils/validation-errors.ts';
+import withDefaults from '../utils/with-defaults.ts';
+import toDate from '../utils/to-date.ts';
 
 const errorFormat = 'MMM Do, YYYY';
 
