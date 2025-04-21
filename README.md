@@ -44,14 +44,16 @@ This addon updates the `changeset` helper by taking in a validation map as a 2nd
 ```hbs
 {{! application/template.hbs}}
 <DummyForm
-    @changeset={{changeset user EmployeeValidations}}
-    @submit={{action "submit"}}
-    @rollback={{action "rollback"}} />
+  @changeset={{changeset user EmployeeValidations}}
+  @submit={{action "submit"}}
+  @rollback={{action "rollback"}}
+/>
 
 <DummyForm
-    @changeset={{changeset user AdminValidations}}
-    @submit={{action "submit"}}
-    @rollback={{action "rollback"}} />
+  @changeset={{changeset user AdminValidations}}
+  @submit={{action "submit"}}
+  @rollback={{action "rollback"}}
+/>
 ```
 
 A validation map is just a POJO (Plain Old JavaScript Object). Use the bundled validators from `ember-changeset-validations` to compose validations or write your own. For example:
@@ -62,33 +64,30 @@ import {
   validatePresence,
   validateLength,
   validateConfirmation,
-  validateFormat
-} from 'ember-changeset-validations/validators';
-import validateCustom from '../validators/custom'; // local validator
-import validatePasswordStrength from '../validators/password-strength'; // local validator
+  validateFormat,
+} from "ember-changeset-validations/validators";
+import validateCustom from "../validators/custom"; // local validator
+import validatePasswordStrength from "../validators/password-strength"; // local validator
 
 export default {
-  firstName: [
-    validatePresence(true),
-    validateLength({ min: 4 })
-  ],
+  firstName: [validatePresence(true), validateLength({ min: 4 })],
   lastName: validatePresence(true),
-  age: validateCustom({ foo: 'bar' }),
-  email: validateFormat({ type: 'email' }),
+  age: validateCustom({ foo: "bar" }),
+  email: validateFormat({ type: "email" }),
   password: [
     validateLength({ min: 8 }),
-    validatePasswordStrength({ minScore: 80 })
+    validatePasswordStrength({ minScore: 80 }),
   ],
-  passwordConfirmation: validateConfirmation({ on: 'password' })
+  passwordConfirmation: validateConfirmation({ on: "password" }),
 };
 ```
 
 Then, you can use the POJO as a property on your Component or Controller and use it in the template:
 
 ```js
-import Component from '@glimmer/component';
-import EmployeeValidations from '../validations/employee';
-import AdminValidations from '../validations/admin';
+import Component from "@glimmer/component";
+import EmployeeValidations from "../validations/employee";
+import AdminValidations from "../validations/admin";
 
 export default class EmployeeComponent extends Component {
   EmployeeValidations = EmployeeValidations;
@@ -98,32 +97,29 @@ export default class EmployeeComponent extends Component {
 
 ```hbs
 <DummyForm
-    @changeset={{changeset user this.EmployeeValidations}}
-    @submit={{action "submit"}}
-    @rollback={{action "rollback"}} />
+  @changeset={{changeset user this.EmployeeValidations}}
+  @submit={{action "submit"}}
+  @rollback={{action "rollback"}}
+/>
 ```
 
 Moreover, as of 3.8.0, a validator can be an Object or Class with a `validate` function.
 
 ```js
-import fetch from 'fetch';
+import fetch from "fetch";
 
 export default class PersonalNoValidator {
-
   async validate(key, newValue, oldValue, changes, content) {
     try {
-      await fetch(
-        '/api/personal-no/validation',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ data: newValue })
-        }
-      );
+      await fetch("/api/personal-no/validation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ data: newValue }),
+      });
 
       return true;
     } catch (_) {
-      return 'Personal No is invalid';
+      return "Personal No is invalid";
     }
   }
 }
@@ -132,24 +128,29 @@ export default class PersonalNoValidator {
 When creating the `Changeset` programmatically instead of using the `changeset` helper, you will have to apply the `lookupValidator` function to convert the POJO to a validator function as expected by `Changeset`:
 
 ```js
-import Component from '@glimmer/component';
-import EmployeeValidations from '../validations/employee';
-import lookupValidator from 'ember-changeset-validations';
-import Changeset from 'ember-changeset';
+import Component from "@glimmer/component";
+import EmployeeValidations from "../validations/employee";
+import lookupValidator from "ember-changeset-validations";
+import Changeset from "ember-changeset";
 
 export default class ChangesetComponent extends Component {
   constructor() {
     super(...arguments);
-    this.changeset = new Changeset(this.model, lookupValidator(EmployeeValidations), EmployeeValidations);
+    this.changeset = new Changeset(
+      this.model,
+      lookupValidator(EmployeeValidations),
+      EmployeeValidations,
+    );
   }
 }
 ```
 
 ```hbs
 <DummyForm
-    @changeset={{this.changeset}}
-    @submit={{action "submit"}}
-    @rollback={{action "rollback"}} />
+  @changeset={{this.changeset}}
+  @submit={{action "submit"}}
+  @rollback={{action "rollback"}}
+/>
 ```
 
 `ember-changeset` and `ember-changeset-validations` both also support creating changesets from promises. However, because that will also return a promise, to render in your template you will need to use a helper like `await` from [`ember-promise-helpers`](https://github.com/fivetanley/ember-promise-helpers).
@@ -178,11 +179,15 @@ Validates presence/absence of a value.
 #### `on` option for `presence`
 
 Only validates for presence if any of the other values are present
+
 ```js
 {
-  password: validatePresence({ presence: true, on: 'ssn' })
-  password: validatePresence({ presence: true, on: [ 'ssn', 'email', 'address' ] })
-  password: validatePresence({ presence: false, on: 'alternative-login' })
+  password: validatePresence({ presence: true, on: "ssn" });
+  password: validatePresence({
+    presence: true,
+    on: ["ssn", "email", "address"],
+  });
+  password: validatePresence({ presence: false, on: "alternative-login" });
 }
 ```
 
@@ -208,7 +213,7 @@ Validates the length of a `String` or an `Array`.
 
 #### `date`
 
-This API accepts valid Date objects or a Date in milliseconds since Jan 1 1970, or a function that returns a Date.  Strings are currently not supported.  It is recommended you use use native JavaScript or you library of choice to generate a date from your data.
+This API accepts valid Date objects or a Date in milliseconds since Jan 1 1970, or a function that returns a Date. Strings are currently not supported. It is recommended you use use native JavaScript or you library of choice to generate a date from your data.
 
 ```js
 {
@@ -335,7 +340,7 @@ export default function validateCustom({ min, max } = {}) {
   return (key, newValue, oldValue, changes, content) => {
     // validation logic
     // return `true` if valid || error message string if invalid
-  }
+  };
 }
 ```
 
@@ -363,17 +368,14 @@ That's it! Then, you can use your custom validator like so:
 
 ```js
 // validations/custom.js
-import { validateLength } from 'ember-changeset-validations/validators';
-import validateUniqueness from '../validators/unique';
-import validateCustom from '../validators/custom';
+import { validateLength } from "ember-changeset-validations/validators";
+import validateUniqueness from "../validators/unique";
+import validateCustom from "../validators/custom";
 
 export default {
   firstName: validateCustom({ min: 4, max: 8 }),
   lastName: validateCustom({ min: 1 }),
-  email: [
-    validateFormat({ type: 'email'}),
-    validateUniqueness()
-  ]
+  email: [validateFormat({ type: "email" }), validateUniqueness()],
 };
 ```
 
@@ -382,20 +384,22 @@ export default {
 Since validators are higher order functions that return functions, testing is straightforward and requires no additional setup:
 
 ```js
-import validateUniqueness from 'path/to/validators/uniqueness';
-import { module, test } from 'qunit';
+import validateUniqueness from "path/to/validators/uniqueness";
+import { module, test } from "qunit";
 
-module('Unit | Validator | uniqueness');
+module("Unit | Validator | uniqueness");
 
-test('it does something', function(assert) {
-  let key = 'email';
-  let options = { /* ... */ };
+test("it does something", function (assert) {
+  let key = "email";
+  let options = {
+    /* ... */
+  };
   let validator = validateUniqueness(options);
 
-  assert.equal(validator(key, undefined), /* ... */);
-  assert.equal(validator(key, null), /* ... */);
-  assert.equal(validator(key, ''), /* ... */);
-  assert.equal(validator(key, 'foo@bar.com'), /* ... */);
+  assert.equal(validator(key, undefined) /* ... */);
+  assert.equal(validator(key, null) /* ... */);
+  assert.equal(validator(key, "") /* ... */);
+  assert.equal(validator(key, "foo@bar.com") /* ... */);
 });
 ```
 
@@ -407,12 +411,12 @@ Because validation maps are POJOs, composing them couldn't be simpler:
 // validations/user.js
 import {
   validatePresence,
-  validateLength
-} from 'ember-changeset-validations/validators';
+  validateLength,
+} from "ember-changeset-validations/validators";
 
 export default {
   firstName: validatePresence(true),
-  lastName: validatePresence(true)
+  lastName: validatePresence(true),
 };
 ```
 
@@ -420,11 +424,11 @@ You can easily import other validations and combine them using `Object.assign`.
 
 ```js
 // validations/adult.js
-import UserValidations from './user';
-import { validateNumber } from 'ember-changeset-validations/validators';
+import UserValidations from "./user";
+import { validateNumber } from "ember-changeset-validations/validators";
 
 export const AdultValidations = {
-  age: validateNumber({ gt: 18 })
+  age: validateNumber({ gt: 18 }),
 };
 
 export default Object.assign({}, UserValidations, AdultValidations);
@@ -438,7 +442,10 @@ If `message` is a string, you can put particular placeholders into it that will 
 
 ```js
 {
-  propertyName: validatePresence({ presence: true, message: '{description} should be present' })
+  propertyName: validatePresence({
+    presence: true,
+    message: "{description} should be present",
+  });
 }
 ```
 
@@ -454,63 +461,66 @@ If you need to be able to override the entire validation message object, simply 
 
 ```js
 // anywhere in your app
-import { setMessages } from 'ember-changeset-validations';
+import { setMessages } from "ember-changeset-validations";
 
 setMessages({
-  inclusion: '', // '{description} is not included in the list',
-  exclusion: '', // '{description} is reserved',
-  invalid: '', // '{description} is invalid',
-  confirmation: '', // "{description} doesn't match {on}",
-  accepted: '', // '{description} must be accepted',
-  empty: '', // "{description} can't be empty",
-  blank: '', // '{description} must be blank',
-  present: '', // "{description} can't be blank",
-  collection: '', // '{description} must be a collection',
-  singular: '', // "{description} can't be a collection",
-  tooLong: '', // '{description} is too long (maximum is {max} characters)',
-  tooShort: '', // '{description} is too short (minimum is {min} characters)',
-  between: '', // '{description} must be between {min} and {max} characters',
-  before: '', // '{description} must be before {before}',
-  onOrBefore: '', // '{description} must be on or before {onOrBefore}',
-  after: '', // '{description} must be after {after}',
-  onOrAfter: '', // '{description} must be on or after {onOrAfter}',
-  wrongDateFormat: '', // '{description} must be in the format of {format}',
-  wrongLength: '', // '{description} is the wrong length (should be {is} characters)',
-  notANumber: '', // '{description} must be a number',
-  notAnInteger: '', // '{description} must be an integer',
-  greaterThan: '', // '{description} must be greater than {gt}',
-  greaterThanOrEqualTo: '', // '{description} must be greater than or equal to {gte}',
-  equalTo: '', // '{description} must be equal to {is}',
-  lessThan: '', // '{description} must be less than {lt}',
-  lessThanOrEqualTo: '', // '{description} must be less than or equal to {lte}',
-  otherThan: '', // '{description} must be other than {value}',
-  odd: '', // '{description} must be odd',
-  even: '', // '{description} must be even',
-  positive: '', // '{description} must be positive',
-  multipleOf: '', // '{description} must be a multiple of {multipleOf}',
-  date: '', // '{description} must be a valid date',
-  email: '', // '{description} must be a valid email address',
-  phone: '', // '{description} must be a valid phone number',
-  url: '', // '{description} must be a valid url'
+  inclusion: "", // '{description} is not included in the list',
+  exclusion: "", // '{description} is reserved',
+  invalid: "", // '{description} is invalid',
+  confirmation: "", // "{description} doesn't match {on}",
+  accepted: "", // '{description} must be accepted',
+  empty: "", // "{description} can't be empty",
+  blank: "", // '{description} must be blank',
+  present: "", // "{description} can't be blank",
+  collection: "", // '{description} must be a collection',
+  singular: "", // "{description} can't be a collection",
+  tooLong: "", // '{description} is too long (maximum is {max} characters)',
+  tooShort: "", // '{description} is too short (minimum is {min} characters)',
+  between: "", // '{description} must be between {min} and {max} characters',
+  before: "", // '{description} must be before {before}',
+  onOrBefore: "", // '{description} must be on or before {onOrBefore}',
+  after: "", // '{description} must be after {after}',
+  onOrAfter: "", // '{description} must be on or after {onOrAfter}',
+  wrongDateFormat: "", // '{description} must be in the format of {format}',
+  wrongLength: "", // '{description} is the wrong length (should be {is} characters)',
+  notANumber: "", // '{description} must be a number',
+  notAnInteger: "", // '{description} must be an integer',
+  greaterThan: "", // '{description} must be greater than {gt}',
+  greaterThanOrEqualTo: "", // '{description} must be greater than or equal to {gte}',
+  equalTo: "", // '{description} must be equal to {is}',
+  lessThan: "", // '{description} must be less than {lt}',
+  lessThanOrEqualTo: "", // '{description} must be less than or equal to {lte}',
+  otherThan: "", // '{description} must be other than {value}',
+  odd: "", // '{description} must be odd',
+  even: "", // '{description} must be even',
+  positive: "", // '{description} must be positive',
+  multipleOf: "", // '{description} must be a multiple of {multipleOf}',
+  date: "", // '{description} must be a valid date',
+  email: "", // '{description} must be a valid email address',
+  phone: "", // '{description} must be a valid phone number',
+  url: "", // '{description} must be a valid url'
 });
 ```
 
 In the message body, any text wrapped in single braces will be replaced with their appropriate values that were passed in as options to the validator. For example:
 
 ```js
-import buildMessage from 'ember-changeset-validations/utils/validation-errors';
+import buildMessage from "ember-changeset-validations/utils/validation-errors";
 // validators/custom.js
 export default function validateIsOne(options) {
   return (key, newValue, oldValue, changes, content) => {
-    return newValue === 1 || buildMessage(key, { type: 'isOne', value: newValue, context: options });
-  }
+    return (
+      newValue === 1 ||
+      buildMessage(key, { type: "isOne", value: newValue, context: options })
+    );
+  };
 }
 ```
 
 ```js
 // validations/foo.js
 export default {
-  mySpecialNumber: validateIsOne({ foo: 'foo' }),
+  mySpecialNumber: validateIsOne({ foo: "foo" }),
 };
 ```
 
@@ -518,10 +528,10 @@ The above will look for a key `isOne` in your custom validation map, and use key
 
 ```js
 // anywhere in your app
-import { setMessages } from 'ember-changeset-validations';
+import { setMessages } from "ember-changeset-validations";
 
 setMessages({
-  isOne: '{description} must equal one, and also {foo}',
+  isOne: "{description} must equal one, and also {foo}",
 });
 ```
 
@@ -537,12 +547,12 @@ To have `ember-changeset-validations` return such data structure, add the follow
 
 ```js
 // ember-cli-build.js
-const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
+const EmberAddon = require("ember-cli/lib/broccoli/ember-addon");
 module.exports = function (defaults) {
   const app = new EmberAddon(defaults, {
-    '@embroider/macros': {
+    "@embroider/macros": {
       setConfig: {
-        'ember-changeset-validations': {
+        "ember-changeset-validations": {
           rawOutput: true,
         },
       },
@@ -571,6 +581,7 @@ This will return an object with the following structure, that you can then pass 
 We're grateful to these wonderful contributors who've contributed to `ember-changeset-validations`:
 
 [//]: contributor-faces
+
 <a href="https://github.com/poteto"><img src="https://avatars0.githubusercontent.com/u/1390709?v=4" title="poteto" width="80" height="80"></a>
 <a href="https://github.com/snewcomer"><img src="https://avatars0.githubusercontent.com/u/7374640?v=4" title="snewcomer" width="80" height="80"></a>
 <a href="https://github.com/nucleartide"><img src="https://avatars3.githubusercontent.com/u/914228?v=4" title="nucleartide" width="80" height="80"></a>
