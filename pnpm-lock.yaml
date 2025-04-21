@@ -21,8 +21,8 @@ importers:
         specifier: '>= 4.8.0'
         version: 6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.5)
       ember-validators:
-        specifier: ~4.1.2
-        version: 4.1.2(@glint/template@1.5.2)
+        specifier: ^5.0.0
+        version: 5.0.0(@babel/core@7.26.10)(@glint/template@1.5.2)(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.5))
       validated-changeset:
         specifier: ^1.4.1
         version: 1.4.1
@@ -3754,9 +3754,10 @@ packages:
     engines: {node: 12.* || 14.* || >= 16.*}
     hasBin: true
 
-  ember-validators@4.1.2:
-    resolution: {integrity: sha512-aNyJW52eWvWhdcRfnb0pGYSDuQU4i4XjA682aDG1ocmz7eUEDw7bXXvKEYGtVsPTtPLtUPvTtaH9mXKpMG+1xA==}
-    engines: {node: 12.* || 14.* || >= 16}
+  ember-validators@5.0.0:
+    resolution: {integrity: sha512-lvdPxRmHNqVvdG+AGq2b3NOe1etgbfkeYt//NSQZ/Ixmb0EBm3qUNzyyfBk3jlEH0kCcGbBzmGBaxehwUphZYg==}
+    peerDependencies:
+      ember-source: '>= 4.8.0'
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -13544,11 +13545,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-validators@4.1.2(@glint/template@1.5.2):
+  ember-validators@5.0.0(@babel/core@7.26.10)(@glint/template@1.5.2)(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.5)):
     dependencies:
+      '@embroider/addon-shim': 1.9.0
       '@embroider/macros': 1.17.1(@glint/template@1.5.2)
-      ember-cli-babel: 7.26.11
+      decorator-transforms: 2.3.0(@babel/core@7.26.10)
+      ember-source: 6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.5)
     transitivePeerDependencies:
+      - '@babel/core'
       - '@glint/template'
       - supports-color
 
