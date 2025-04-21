@@ -7,6 +7,8 @@ import {
   validatePresence,
   validateLength,
 } from 'ember-changeset-validations/validators';
+import { setMessages } from 'ember-changeset-validations';
+import customMessages from 'dummy/validations/messages';
 
 function validateUnique() {
   return (_key, newValue) => {
@@ -22,6 +24,8 @@ function validateContent() {
 
 module('Unit | Helper | changeset', function () {
   test('it composes validations and uses custom validation messages', async function (assert) {
+    setMessages(customMessages);
+
     let User = class extends EmberObject {
       firstName = null;
       lastName = null;
@@ -68,6 +72,7 @@ module('Unit | Helper | changeset', function () {
       changesetInstance.get('isValid'),
       'should be valid after setting valid first and last names',
     );
+    setMessages(undefined);
   });
 
   test('it works with async validators', async function (assert) {
@@ -152,7 +157,7 @@ module('Unit | Helper | changeset', function () {
     changesetInstance.validate().then(() => {
       assert.deepEqual(
         changesetInstance.get('error').firstName.validation,
-        "[CUSTOM] First name can't be blank",
+        "First name can't be blank",
       );
       assert.ok(
         changesetInstance.get('isInvalid'),

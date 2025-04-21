@@ -6,11 +6,11 @@
 import { get } from '@ember/object';
 
 import { assert } from '@ember/debug';
-import config from 'ember-get-config';
-import getMessages from 'ember-changeset-validations/utils/get-messages';
+import { getOwnConfig } from '@embroider/macros';
+import { getMessages } from './messages';
 
 export default function buildMessage(key, result) {
-  let returnsRaw = config['changeset-validations']?.rawOutput || false;
+  let returnsRaw = getOwnConfig()?.rawOutput || false;
   let messages = getMessages();
 
   let description = messages.getDescriptionFor(key);

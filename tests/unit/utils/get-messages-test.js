@@ -1,10 +1,15 @@
-import getMessages from 'ember-changeset-validations/utils/get-messages';
-import defaultMessages from 'ember-changeset-validations/utils/messages';
 import { module, test } from 'qunit';
+import {
+  getMessages,
+  setMessages,
+  defaultMessages,
+} from 'ember-changeset-validations/utils/messages';
+import customMessages from 'dummy/validations/messages';
 
 module('Unit | Utility | get messages', function () {
   test('it loads custom messages if defined', function (assert) {
-    let messages = getMessages();
+    setMessages(customMessages);
+    const messages = getMessages();
 
     // It has all the default messages
     Object.keys(defaultMessages).forEach((k) => {
@@ -13,12 +18,12 @@ module('Unit | Utility | get messages', function () {
 
     // Check for custom message which means we loaded the right file
     assert.ok(messages.custom, 'It has the custom message');
+    setMessages(undefined);
   });
 
-  test('it fallsback to default messages if not defined', function (assert) {
-    let dummyModuleMap = {};
+  test('it falls back to default messages if not defined', function (assert) {
     assert.deepEqual(
-      getMessages(dummyModuleMap, false),
+      getMessages(),
       defaultMessages,
       'loads the correct module',
     );
