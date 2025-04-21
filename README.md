@@ -9,15 +9,27 @@
 
 Since `ember-changeset` is required to use this addon, please see [documentation](https://github.com/adopted-ember-addons/ember-changeset/blob/master/README.md) there on how to install and use changesets.
 
-To install if your app is on ember-source >= 3.13:
+## Compatibility
 
-```
+- Ember.js v4.8 or above
+
+## Installation
+
+To install if your app is on ember-source >= 4.8:
+
+```shell
 ember install ember-changeset-validations
+```
+
+To install if your app is on ember-source >= 3.13 < 4.8
+
+```shell
+ember install ember-changeset-validations@4.2.0
 ```
 
 To install if your app is on ember-source < 3.13:
 
-```
+```shell
 ember install ember-changeset-validations@v2.2.1
 ```
 
