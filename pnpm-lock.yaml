@@ -66,6 +66,9 @@ importers:
       '@tsconfig/ember':
         specifier: ^3.0.8
         version: 3.0.10
+      '@types/rsvp':
+        specifier: ^4.0.9
+        version: 4.0.9
       babel-plugin-ember-template-compilation:
         specifier: ^2.2.5
         version: 2.3.0
