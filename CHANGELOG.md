@@ -2,32 +2,38 @@
 
 ## Release (2025-04-29)
 
-* ember-changeset-validations 5.0.0 (major)
+- ember-changeset-validations 5.0.0 (major)
 
 #### :boom: Breaking Change
-* `ember-changeset-validations`
-  * [#374](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/374) Drop support for Ember.js versions below 4.8 ([@SergeAstapov](https://github.com/SergeAstapov))
-  * [#371](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/371) Switch addon configuration from environment.js to @embroider/macros ([@SergeAstapov](https://github.com/SergeAstapov))
+
+- `ember-changeset-validations`
+  - [#374](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/374) Drop support for Ember.js versions below 4.8 ([@SergeAstapov](https://github.com/SergeAstapov))
+  - [#371](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/371) Switch addon configuration from environment.js to @embroider/macros ([@SergeAstapov](https://github.com/SergeAstapov))
 
 #### :rocket: Enhancement
-* `ember-changeset-validations`
-  * [#377](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/377) Bump ember-validators to v5 ([@SergeAstapov](https://github.com/SergeAstapov))
-  * [#372](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/372) Convert addon to v2 format ([@SergeAstapov](https://github.com/SergeAstapov))
+
+- `ember-changeset-validations`
+  - [#377](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/377) Bump ember-validators to v5 ([@SergeAstapov](https://github.com/SergeAstapov))
+  - [#372](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/372) Convert addon to v2 format ([@SergeAstapov](https://github.com/SergeAstapov))
 
 #### :bug: Bug Fix
-* `ember-changeset-validations`
-  * [#381](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/381) Disable declarations folder generation ([@SergeAstapov](https://github.com/SergeAstapov))
+
+- `ember-changeset-validations`
+  - [#381](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/381) Disable declarations folder generation ([@SergeAstapov](https://github.com/SergeAstapov))
 
 #### :memo: Documentation
-* `ember-changeset-validations`
-  * [#380](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/380) Fix broken urls in readme ([@jkeen](https://github.com/jkeen))
+
+- `ember-changeset-validations`
+  - [#380](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/380) Fix broken urls in readme ([@jkeen](https://github.com/jkeen))
 
 #### :house: Internal
-* `ember-changeset-validations`
-  * [#379](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/379) Add push-dist workflow for testing pre-release updates ([@SergeAstapov](https://github.com/SergeAstapov))
-  * [#375](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/375) Vanilla Prettier Setup ([@SergeAstapov](https://github.com/SergeAstapov))
+
+- `ember-changeset-validations`
+  - [#379](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/379) Add push-dist workflow for testing pre-release updates ([@SergeAstapov](https://github.com/SergeAstapov))
+  - [#375](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/375) Vanilla Prettier Setup ([@SergeAstapov](https://github.com/SergeAstapov))
 
 #### Committers: 2
+
 - Jeff Keen ([@jkeen](https://github.com/jkeen))
 - Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
 
