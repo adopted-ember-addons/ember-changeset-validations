@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2025-05-01)
+
+* ember-changeset-validations 5.0.1 (patch)
+
+#### :house: Internal
+* `ember-changeset-validations`
+  * [#382](https://github.com/adopted-ember-addons/ember-changeset-validations/pull/382) format changelog with prettier ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 1
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
 ## Release (2025-04-29)
 
 - ember-changeset-validations 5.0.0 (major)
